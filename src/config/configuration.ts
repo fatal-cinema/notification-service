@@ -28,5 +28,9 @@ export default () => {
 			from: env.SMTP_FROM,
 			secure: env.SMTP_SECURE,
 		},
+		exolve: {
+			apiKey: env.EXOLVE_API_KEY,
+			sender: env.EXOLVE_SENDER,
+		},
 	}
 }

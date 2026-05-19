@@ -18,4 +18,7 @@ export const validationSchema = z.object({
 	SMTP_PASSWORD: z.string().nonempty(),
 	SMTP_FROM: z.email().nonempty(),
 	SMTP_SECURE: z.string().transform(v => v === 'true'),
+
+	EXOLVE_API_KEY: z.string().nonempty(),
+	EXOLVE_SENDER: z.string().nonempty(),
 })
