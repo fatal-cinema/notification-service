@@ -18,6 +18,8 @@ export class NotificationController {
 		try {
 			console.log(`OTP event received: `, data)
 
+			await this.notificationService.sendOtp(data)
+
 			this.RmqService.ack(ctx)
 		} catch (error) {
 			console.log(`OTP processing error: `, error.message ?? error)

@@ -4,6 +4,7 @@ import { ConfigModule } from '@nestjs/config'
 import configuration from '@config/configuration'
 import { IS_DEV_ENV } from '@shared/utils'
 
+import { MailModule } from './mail/mail.module'
 import { RmqModule } from './rmq/rmq.module'
 
 @Module({
@@ -15,6 +16,7 @@ import { RmqModule } from './rmq/rmq.module'
 			expandVariables: true,
 		}),
 		RmqModule,
+		MailModule,
 	],
 })
 export class CoreModule {}
