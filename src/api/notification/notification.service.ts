@@ -1,4 +1,4 @@
-import type { OtpRequestedEvent } from '@fatal-cinema/contracts'
+import type { EmailChangedEvent, OtpRequestedEvent, PhoneChangedEvent } from '@fatal-cinema/contracts'
 import { Injectable } from '@nestjs/common'
 
 import { MailService } from '@core/mail/mail.service'
@@ -19,5 +19,17 @@ export class NotificationService {
 		} else {
 			await this.smsService.sendOtp(identifier, code)
 		}
+	}
+
+	async sendPhoneChange(data: PhoneChangedEvent) {
+		const { phone, code } = data
+
+		return this.smsService.sendPhoneChange(phone, code)
+	}
+
+	async sendEmailChange(data: EmailChangedEvent) {
+		const { email, code } = data
+
+		return this.mailService.sendEmailChange(email, code)
 	}
 }

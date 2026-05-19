@@ -24,6 +24,10 @@ export class SmsService {
 		return this.send({ destination: phone, text: `Ваш код подтверждения: ${code}` })
 	}
 
+	async sendPhoneChange(phone: string, code: string) {
+		return this.send({ destination: phone, text: `Ваш код подтверждения смены номера телефона: ${code}` })
+	}
+
 	async send(data: SendSmsRequest): Promise<SendSmsResponse> {
 		const payload: SendSmsRequest = {
 			number: data.number ?? this.options.sender,
