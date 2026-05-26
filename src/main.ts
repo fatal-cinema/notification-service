@@ -4,6 +4,8 @@ import { MicroserviceOptions, Transport } from '@nestjs/microservices'
 
 import { AppModule } from './app.module'
 
+import '@observability/tracing/tracing'
+
 async function bootstrap() {
 	const app = await NestFactory.create(AppModule)
 
